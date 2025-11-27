@@ -1,0 +1,26 @@
+solicitor_id,firm_name,contact_name,email,phone,address,city,postcode,specialization,panel_lender_approved,avg_response_time_hours,rating,notes,active
+SOL-001,Clarke & Partners,David Clarke,d.clarke@clarkepartners.co.uk,0161 234 5678,45 Legal Row,Manchester,M2 4WP,residential_conveyancing,true,24,4.5,"Reliable firm. Good communication. Used frequently.",true
+SOL-002,Hughes Law,Sarah Hughes,s.hughes@hugheslaw.co.uk,0161 456 7890,12 Solicitor Street,Manchester,M3 3EJ,residential_conveyancing,true,48,4.2,"Thorough but can be slow. Good for complex cases.",true
+SOL-003,Brown & Co Solicitors,Michael Brown,m.brown@brownco.co.uk,0161 567 8901,78 Law Lane,Manchester,M4 1HN,general_practice,true,24,4.0,"General practice. Adequate for standard transactions.",true
+SOL-004,White & Associates,Lisa White,l.white@whiteassoc.co.uk,0161 678 9012,23 Court Road,Manchester,M2 5AB,residential_conveyancing,true,24,4.6,"Excellent firm. Fast turnaround. Highly recommended.",true
+SOL-005,Green Legal,Richard Green,r.green@greenlegal.co.uk,0161 789 0123,56 Justice Way,Manchester,M3 2CD,residential_conveyancing,true,36,4.3,"Good firm. Slightly higher fees but quality service.",true
+SOL-006,Davies & Partners,Andrew Davies,a.davies@daviespartners.co.uk,0161 890 1234,89 Barrister Lane,Manchester,M4 4EF,residential_conveyancing,true,24,4.4,"Responsive team. Good for first-time buyers.",true
+SOL-007,Stone Solicitors,Emily Stone,e.stone@stonesolicitors.co.uk,0161 901 2345,34 Legal Plaza,Manchester,M2 6GH,residential_conveyancing,true,24,4.7,"Top-rated firm. Excellent communication. Premium service.",true
+SOL-008,Hill & Sons,Thomas Hill,t.hill@hillsons.co.uk,0161 012 3456,67 Chambers Street,Manchester,M3 7IJ,residential_conveyancing,true,48,4.1,"Family firm. Traditional approach. Reliable.",true
+SOL-009,Clark Estate Law,Jennifer Clark,j.clark@clarkestatelaw.co.uk,0161 123 4567,12 Probate House,Manchester,M2 8KL,probate_conveyancing,true,36,4.5,"Specialists in probate sales. Experienced team.",true
+SOL-010,Moore Legal Services,Catherine Moore,c.moore@moorelegal.co.uk,0161 234 5679,45 Deed Road,Manchester,M4 9MN,residential_conveyancing,true,24,4.3,"Good all-round firm. Competitive fees.",true
+SOL-011,Wright Solicitors,Amanda Wright,a.wright@wrightsolicitors.co.uk,0161 789 0124,78 Contract Lane,Manchester,M3 0OP,residential_conveyancing,true,24,4.4,"Efficient team. Good for chain transactions.",true
+SOL-012,Wilson & Co,Peter Wilson,p.wilson@wilsonco.co.uk,0161 456 7891,23 Transfer Street,Manchester,M2 1QR,residential_conveyancing,true,36,4.2,"Experienced firm. Handles complex chains well.",true
+SOL-013,King & Associates,Laura King,l.king@kingassoc.co.uk,0161 567 8902,56 Equity House,Manchester,M4 2ST,residential_conveyancing,true,24,4.5,"Modern firm. Tech-savvy. Fast communication.",true
+SOL-014,Black Law,Stephen Black,s.black@blacklaw.co.uk,0161 678 9013,89 Covenant Road,Manchester,M3 3UV,residential_conveyancing,true,24,4.3,"Reliable service. Good client feedback.",true
+SOL-015,James & James,Victoria James,v.james@jamesjames.co.uk,0161 123 4568,34 Title Lane,Manchester,M2 4WX,luxury_conveyancing,true,24,4.8,"Premium firm for high-value properties. Discrete service.",true
+SOL-016,Thompson Family Law,Mark Thompson,m.thompson@thompsonfamilylaw.co.uk,0161 234 5680,67 Decree Street,Manchester,M4 5YZ,divorce_conveyancing,true,48,4.4,"Specialists in divorce-related sales. Sensitive handling.",true
+SOL-017,Taylor Conveyancing,Susan Taylor,s.taylor@taylorconveyancing.co.uk,0161 345 6781,12 Register Row,Manchester,M3 6AB,residential_conveyancing,true,24,4.5,"Conveyancing specialists. Streamlined process.",true
+SOL-018,Davis Law,Robert Davis,r.davis@davislaw.co.uk,0161 456 7892,45 Tenure House,Manchester,M2 7CD,residential_conveyancing,true,36,4.1,"Solid firm. Standard service level.",true
+SOL-019,Grant & Grant,Oliver Grant,o.grant@grantgrant.co.uk,0161 123 4569,78 Freehold Lane,Manchester,M4 8EF,residential_conveyancing,true,24,4.4,"Father-son firm. Personal service.",true
+SOL-020,Adams Legal,Rachel Adams,r.adams@adamslegal.co.uk,0161 012 3457,23 Search Street,Manchester,M3 9GH,residential_conveyancing,true,24,4.6,"Fast turnaround. Good for quick completions.",true
+SOL-021,Santos & Partners,Maria Santos,m.santos@santospartners.co.uk,0161 901 2347,56 Completion Road,Manchester,M2 0IJ,residential_conveyancing,true,48,4.2,"Thorough due diligence. Takes time but quality work.",true
+SOL-022,Turner Legal,Sophie Turner,s.turner@turnerlegal.co.uk,0161 890 1236,89 Exchange Lane,Manchester,M4 1KL,residential_conveyancing,true,24,4.5,"Responsive team. Good weekend availability.",true
+SOL-023,Miller Solicitors,Paul Miller,p.miller@millersolicitors.co.uk,0161 678 9014,34 Contract House,Manchester,M3 2MN,residential_conveyancing,true,36,4.3,"Established firm. Traditional but reliable.",true
+SOL-024,Windsor Estate Law,Charles Windsor,c.windsor@windsorestatelaw.co.uk,0161 789 0125,67 Heritage Row,Manchester,M2 3OP,estate_conveyancing,true,48,4.7,"Specialists in estate sales and titled properties.",true
+SOL-025,Pemberton Estate Solicitors,Nigel Pemberton,n.pemberton@pembertonestatesolicitors.co.uk,0161 234 5681,12 Manor Lane,Manchester,M4 4QR,luxury_estate_conveyancing,true,48,4.9,"Top-tier firm for prestige properties. Discrete service.",true

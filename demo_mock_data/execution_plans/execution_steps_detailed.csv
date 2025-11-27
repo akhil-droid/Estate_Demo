@@ -1,0 +1,112 @@
+plan_id,step_number,parallel_group,action,assigned_agent,dependencies,input_required,expected_output,estimated_time_ms,estimated_cost_usd,is_critical
+PLAN-001,1,A,Parse incoming lead data,orchestrator,,form_data,validated_lead_data,500,0.05,true
+PLAN-001,2,A,Create CRM lead record,scout,step_1,validated_lead_data,crm_record_id,1500,0.20,true
+PLAN-001,3,B,Send acknowledgment email,content,step_2,lead_email|property_address,email_sent_confirmation,1500,0.20,false
+PLAN-002,1,A,Analyze enquiry and route,orchestrator,,enquiry_data|property_id,workflow_plan,450,0.05,true
+PLAN-002,2,A,Generate personalized response,content,step_1,enquiry_details|property_data|negotiator_info,email_draft,3200,0.45,true
+PLAN-002,3,A,Prepare property brief,scout,step_1,property_id,property_highlights,1500,0.20,false
+PLAN-002,4,B,Validate response compliance,compliance,step_2,email_draft,approval_status,800,0.12,true
+PLAN-003,1,A,Parse buyer registration,orchestrator,,registration_data,buyer_profile,500,0.05,true
+PLAN-003,2,A,Verify financial documents,compliance,step_1,proof_of_funds|aip_document,verification_status,2000,0.35,true
+PLAN-003,3,A,Create buyer CRM record,scout,step_1,buyer_profile,buyer_id,1500,0.20,true
+PLAN-003,4,B,Match to active properties,intelligence,step_2|step_3,buyer_requirements|property_database,match_list,1500,0.35,false
+PLAN-004,1,A,Analyze research requirements,orchestrator,,property_address|appointment_date,research_plan,600,0.05,true
+PLAN-004,2,A,Fetch property data,scout,step_1,property_address,land_registry_data|epc_data,2500,0.40,true
+PLAN-004,3,A,Find comparable sales,scout,step_1,postcode|property_type|beds,comparable_properties,2000,0.35,true
+PLAN-004,4,B,Analyze market position,intelligence,step_2|step_3,property_data|comparables,valuation_range|market_insights,2000,0.30,true
+PLAN-004,5,B,Generate CMA report,content,step_4,all_data|analysis,cma_document,1400,0.35,true
+PLAN-005,1,A,Parse valuation request,orchestrator,,property_address|features,search_criteria,400,0.03,true
+PLAN-005,2,A,Fetch instant comparables,scout,step_1,postcode|property_type,recent_sales,1200,0.25,true
+PLAN-005,3,A,Calculate estimate,intelligence,step_2,comparables|features,price_estimate|confidence,900,0.27,true
+PLAN-006,1,A,Identify follow-up requirements,orchestrator,,valuation_notes|vendor_status,follow_up_plan,500,0.05,true
+PLAN-006,2,A,Generate follow-up email,content,step_1,valuation_details|vendor_concerns,personalized_email,2500,0.45,true
+PLAN-006,3,A,Schedule callback task,orchestrator,step_1,vendor_preferences,crm_task_created,800,0.15,false
+PLAN-007,1,A,Create execution plan,orchestrator,,instruction_data,workflow_steps,850,0.08,true
+PLAN-007,2,A,Create CRM property record,scout,step_1,property_details|vendor_details,property_id,4000,0.40,true
+PLAN-007,3,A,Verify EPC status,scout,step_1,property_address,epc_certificate,2500,0.25,true
+PLAN-007,4,A,Run AML checks,compliance,step_1,vendor_id_documents,aml_certificate,3000,0.35,true
+PLAN-007,5,B,Generate property description,content,step_2,property_data|photos,description_draft,4500,0.65,true
+PLAN-007,6,B,Search matching buyers,intelligence,step_2,property_criteria,matched_buyers_list,5000,0.70,true
+PLAN-007,7,C,Validate description,compliance,step_5,description_draft,approval_status,1200,0.15,true
+PLAN-007,8,D,Finalize and schedule launch,orchestrator,step_3|step_4|step_7,all_outputs,launch_date|tasks_created,1500,0.12,true
+PLAN-008,1,A,Parse EPC request,orchestrator,,property_address,api_query,300,0.02,true
+PLAN-008,2,A,Query EPC register,scout,step_1,address,epc_details|validity,2200,0.23,true
+PLAN-009,1,A,Parse AML request,orchestrator,,vendor_documents,verification_plan,400,0.05,true
+PLAN-009,2,A,Run identity checks,compliance,step_1,id_documents,identity_verified,1500,0.20,true
+PLAN-009,3,A,Run sanctions/PEP screening,compliance,step_2,vendor_name,screening_results,1600,0.25,true
+PLAN-010,1,A,Analyze property for description,orchestrator,,property_data|photos,writing_brief,600,0.05,true
+PLAN-010,2,A,Generate marketing description,content,step_1,property_details|key_features|target_audience,description_text,4500,0.60,true
+PLAN-010,3,B,Validate compliance,compliance,step_2,description_text,approval|flags,1200,0.15,true
+PLAN-011,1,A,Verify launch readiness,orchestrator,,property_id,checklist_status,800,0.08,true
+PLAN-011,2,A,Final compliance check,compliance,step_1,all_materials,approval_status,1500,0.18,true
+PLAN-011,3,B,Upload to Rightmove,scout,step_2,listing_data,rightmove_id,1500,0.20,true
+PLAN-011,4,B,Upload to Zoopla,scout,step_2,listing_data,zoopla_id,1500,0.20,true
+PLAN-011,5,B,Upload to OnTheMarket,scout,step_2,listing_data,otm_id,1500,0.20,true
+PLAN-011,6,C,Notify matched buyers,content,step_3|step_4|step_5,matched_buyers|property_details,emails_sent,1700,0.34,false
+PLAN-012,1,A,Parse matching criteria,orchestrator,,property_details,search_parameters,500,0.05,true
+PLAN-012,2,A,Search buyer database,scout,step_1,criteria,raw_matches,2500,0.35,true
+PLAN-012,3,A,Score and rank matches,intelligence,step_2,matches|property_features,ranked_list,2000,0.30,true
+PLAN-013,1,A,Fetch portal statistics,scout,,property_id|portals,raw_stats,2000,0.25,true
+PLAN-013,2,A,Analyze performance,intelligence,step_1,stats|benchmarks,insights|recommendations,1000,0.15,false
+PLAN-014,1,A,Analyze enquiry urgency,orchestrator,,enquiry_data,priority_level,400,0.05,true
+PLAN-014,2,A,Generate response email,content,step_1,enquiry|property|negotiator,email_draft,3200,0.45,true
+PLAN-014,3,A,Prepare negotiator brief,scout,step_1,property_id,property_highlights|talking_points,1500,0.20,false
+PLAN-014,4,B,Validate response,compliance,step_2,email_draft,approval,800,0.12,true
+PLAN-014,5,B,Create CRM task,orchestrator,step_1,negotiator_id|buyer_details,call_task,400,0.01,true
+PLAN-015,1,A,Get viewing schedule,scout,,property_id|date_range,scheduled_viewings,1200,0.15,true
+PLAN-015,2,A,Generate vendor instructions,content,step_1,viewing_times,preparation_email,1800,0.25,true
+PLAN-015,3,A,Generate buyer reminders,content,step_1,buyer_list|viewing_times,reminder_emails,2000,0.30,true
+PLAN-015,4,A,Prepare viewing brief,scout,step_1,property_id,property_key_points,500,0.05,false
+PLAN-016,1,A,Parse feedback data,orchestrator,,viewing_id|feedback_notes,structured_feedback,500,0.05,true
+PLAN-016,2,A,Analyze sentiment,intelligence,step_1,feedback_text,sentiment_score|themes,2000,0.30,true
+PLAN-016,3,A,Update CRM and notify,content,step_2,analysis|vendor_id,crm_updated|vendor_summary,1000,0.20,false
+PLAN-017,1,A,Aggregate daily feedback,scout,,date|all_properties,all_feedback_records,2000,0.25,true
+PLAN-017,2,A,Identify patterns,intelligence,step_1,feedback_data,patterns|concerns|opportunities,2500,0.40,true
+PLAN-017,3,A,Generate insights report,content,step_2,analysis,daily_summary,1500,0.20,false
+PLAN-018,1,A,Gather weekly data,scout,,property_id|week_dates,viewings|enquiries|portal_stats,3000,0.35,true
+PLAN-018,2,A,Analyze activity and feedback,intelligence,step_1,weekly_data|feedback,analysis|trends,3500,0.40,true
+PLAN-018,3,A,Get market comparison,scout,step_1,postcode|price_range,market_context,2000,0.25,true
+PLAN-018,4,B,Generate report content,content,step_2|step_3,all_analysis,report_sections,4800,0.45,true
+PLAN-018,5,B,Format and finalize,orchestrator,step_4,report_content,final_report,1500,0.10,true
+PLAN-019,1,A,Process price change,orchestrator,,property_id|new_price,update_plan,500,0.05,true
+PLAN-019,2,A,Update all portals,scout,step_1,property_id|new_price,portals_updated,2500,0.35,true
+PLAN-019,3,A,Re-run buyer matching,intelligence,step_1,new_criteria,new_matches,2500,0.40,true
+PLAN-019,4,B,Notify interested buyers,content,step_3,buyer_list|price_change,emails_sent,2000,0.30,false
+PLAN-020,1,A,Parse offer details,orchestrator,,offer_data,structured_offer,500,0.05,true
+PLAN-020,2,A,Verify buyer finances,compliance,step_1,buyer_id|proof_of_funds,financial_verification,2500,0.35,true
+PLAN-020,3,A,Check chain status,scout,step_1,buyer_property_address,chain_assessment,2000,0.30,true
+PLAN-020,4,B,Verify solicitor details,scout,step_2,solicitor_info,solicitor_verified,1500,0.20,false
+PLAN-020,5,B,Assess buyer strength,intelligence,step_2|step_3,all_verifications,buyer_score|recommendation,2000,0.35,true
+PLAN-021,1,A,Analyze offer context,orchestrator,,offer|property|market,presentation_plan,600,0.08,true
+PLAN-021,2,A,Get market comparisons,scout,step_1,property_id,recent_sales|competing_listings,2000,0.30,true
+PLAN-021,3,A,Assess offer strength,intelligence,step_1,buyer_profile|offer_amount,strength_analysis,2000,0.30,true
+PLAN-021,4,B,Generate presentation,content,step_2|step_3,all_analysis,presentation_document,1900,0.27,true
+PLAN-022,1,A,Process sale agreed,orchestrator,,offer_id|acceptance,workflow_plan,600,0.08,true
+PLAN-022,2,A,Generate congratulations,content,step_1,buyer_details|vendor_details,congratulations_emails,2000,0.30,true
+PLAN-022,3,A,Collect buyer solicitor,scout,step_1,buyer_id,buyer_solicitor_details,1500,0.20,true
+PLAN-022,4,A,Collect vendor solicitor,scout,step_1,vendor_id,vendor_solicitor_details,1500,0.20,true
+PLAN-022,5,B,Map chain,intelligence,step_3|step_4,both_party_details,chain_visualization,2500,0.35,true
+PLAN-022,6,B,Create handover brief,content,step_5,all_details,progressor_handover,2400,0.40,true
+PLAN-022,7,C,Assign to progressor,orchestrator,step_6,handover_brief,case_assigned,1500,0.12,true
+PLAN-023,1,A,Gather all party details,scout,,sale_id,complete_party_info,2500,0.30,true
+PLAN-023,2,A,Generate MoS document,content,step_1,all_party_details|sale_terms,mos_document,3500,0.50,true
+PLAN-023,3,B,Email to buyer,content,step_2,mos|buyer_email,sent_confirmation,700,0.10,true
+PLAN-023,4,B,Email to vendor,content,step_2,mos|vendor_email,sent_confirmation,700,0.10,true
+PLAN-023,5,B,Email to solicitors,content,step_2,mos|solicitor_emails,sent_confirmations,1400,0.20,true
+PLAN-023,6,C,Update portal status,scout,step_2,property_id,status_updated_sstc,700,0.15,true
+PLAN-024,1,A,Get case status,scout,,case_id,current_status_all_parties,3000,0.35,true
+PLAN-024,2,A,Identify blockers,intelligence,step_1,status_data,blockers|risks,2500,0.35,true
+PLAN-024,3,A,Generate chase list,orchestrator,step_2,blockers,prioritized_actions,1500,0.15,true
+PLAN-024,4,B,Generate chase emails,content,step_3,chase_list|contacts,chase_communications,3000,0.45,true
+PLAN-024,5,B,Update chain status,scout,step_1,related_sales,chain_visualization,2000,0.25,true
+PLAN-024,6,C,Generate party updates,content,step_2|step_5,status|chain,buyer_update|vendor_update,2000,0.25,false
+PLAN-024,7,C,Flag at-risk cases,intelligence,step_2,risk_indicators,risk_alerts,1000,0.05,true
+PLAN-025,1,A,Monitor completion,scout,,case_id,funds_status|legal_status,3000,0.35,true
+PLAN-025,2,A,Confirm legal completion,scout,step_1,solicitor_confirmation,completion_confirmed,2000,0.25,true
+PLAN-025,3,B,Process key release,orchestrator,step_2,completion_status,key_release_authorized,1000,0.10,true
+PLAN-025,4,B,Generate invoice,content,step_2,sale_details|fee_rate,commission_invoice,2000,0.30,true
+PLAN-025,5,C,Remove portal listings,scout,step_2,property_id,listings_removed,2000,0.25,true
+PLAN-025,6,C,Update CRM status,scout,step_2,property_id,status_completed,1000,0.15,false
+PLAN-025,7,D,Generate congratulations,content,step_3,buyer_details|vendor_details,congratulations_messages,2000,0.30,true
+PLAN-025,8,D,Request reviews,content,step_7,client_emails,review_requests_sent,2000,0.30,false
+PLAN-025,9,D,Submit invoice,orchestrator,step_4,invoice|solicitor_email,invoice_submitted,1000,0.10,true

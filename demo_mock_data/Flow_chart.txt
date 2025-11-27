@@ -1,0 +1,70 @@
+Query → Entities → Plan → Steps → Agents Talk → Validate → Measure
+
+STEP 1: TRIGGER
+┌─────────────────────────────────────────┐
+│ QUERY BANK (75 queries)                 │
+│                                         │
+│ • Raw input arrives                     │
+│ • Maps to workflow + plan               │
+│ • Links to entities                     │
+└─────────────────┬───────────────────────┘
+                  │
+                  ▼
+STEP 2: LOOKUP DATA
+┌─────────────────────────────────────────┐
+│ ENTITIES (7 files)                      │
+│                                         │
+│ • Properties, Vendors, Buyers           │
+│ • Employees, Solicitors, AI Agents      │
+│ • Lookup Tables                         │
+└─────────────────┬───────────────────────┘
+                  │
+                  ▼
+STEP 3: FIND PLAN
+┌─────────────────────────────────────────┐
+│ EXECUTION PLANS SUMMARY (25 plans)      │
+│                                         │
+│ • Which agents needed                   │
+│ • How many steps/groups                 │
+│ • Time & cost estimates                 │
+└─────────────────┬───────────────────────┘
+                  │
+                  ▼
+STEP 4: EXECUTE
+┌─────────────────────────────────────────┐
+│ EXECUTION STEPS DETAILED (115 steps)    │
+│                                         │
+│ • Exact sequence                        │
+│ • Parallel groups (A, B, C)             │
+│ • Dependencies                          │
+└─────────────────┬───────────────────────┘
+                  │
+                  ▼
+STEP 5: AGENT COMMUNICATION
+┌─────────────────────────────────────────┐
+│ AGENT SCRIPTS (15 scripts/180 messages) │
+│                                         │
+│ • Agent-to-agent messages               │
+│ • Request → Response flow               │
+│ • Payload details                       │
+└─────────────────┬───────────────────────┘
+                  │
+                  ▼
+STEP 6: VALIDATE RESULT
+┌─────────────────────────────────────────┐
+│ HAPPY PATHS (30)      → Expected good   │
+│ EDGE CASES (20)       → Unusual handled │
+│ ERROR RECOVERY (10)   → Failures fixed  │
+│ SHOWCASE (10)         → Multi-stage     │
+└─────────────────┬───────────────────────┘
+                  │
+                  ▼
+STEP 7: MEASURE
+┌─────────────────────────────────────────┐
+│ METRICS DASHBOARD (46 KPIs)             │
+│                                         │
+│ • Speed, Cost, Quality                  │
+│ • Conversion, Capacity, Revenue         │
+│ • Compare: Manual vs AI                 │
+└─────────────────────────────────────────┘
+

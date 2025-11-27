@@ -1,0 +1,105 @@
+category,code,display_name,description,sort_order
+property_type,semi_detached_house,Semi-Detached House,A house joined to one other property,1
+property_type,detached_house,Detached House,A standalone house not joined to others,2
+property_type,terraced_house,Terraced House,A house in a row of connected properties,3
+property_type,flat,Flat/Apartment,A self-contained unit within a larger building,4
+property_type,bungalow,Bungalow,A single-storey dwelling,5
+property_type,penthouse,Penthouse,Top floor luxury apartment,6
+property_type,maisonette,Maisonette,A two-storey flat with own entrance,7
+property_type,converted_barn,Converted Barn,Agricultural building converted to residential,8
+property_type,new_build_detached,New Build Detached,Newly constructed detached house,9
+property_type,new_build_semi,New Build Semi,Newly constructed semi-detached house,10
+property_type,commercial_conversion,Commercial Conversion,Commercial property converted to residential,11
+property_type,studio,Studio,Single room living space,12
+property_status,pre_instruction,Pre-Instruction,Lead generated but not yet instructed,1
+property_status,instructed,Instructed,Contract signed awaiting marketing,2
+property_status,pre_launch,Pre-Launch,Marketing materials being prepared,3
+property_status,active,Active,Live on market and portals,4
+property_status,under_offer,Under Offer,Offer accepted but not yet STC,5
+property_status,sold_stc,Sold STC,Sale agreed subject to contract,6
+property_status,exchanged,Exchanged,Contracts exchanged awaiting completion,7
+property_status,completed,Completed,Sale completed,8
+property_status,withdrawn,Withdrawn,Property removed from market,9
+property_status,fallen_through,Fallen Through,Sale collapsed,10
+buyer_type,first_time_buyer,First Time Buyer,Has never owned property before,1
+buyer_type,chain_free_cash,Chain Free Cash,Cash buyer with no property to sell,2
+buyer_type,chain,Chain,Has property to sell before buying,3
+buyer_type,investor,Investor,Purchasing for rental/investment,4
+buyer_type,relocation,Relocation,Moving for work from another area,5
+buyer_type,downsizer,Downsizer,Moving to smaller property,6
+buyer_type,upsizer,Upsizer,Moving to larger property,7
+chain_status,chain_free,Chain Free,No property to sell,1
+chain_status,first_time_buyer,First Time Buyer,No chain - first purchase,2
+chain_status,subject_to_sale,Subject to Sale,Must sell current property,3
+chain_status,dependent_sale,Dependent Sale,Sale depends on selling first,4
+chain_status,proceedable,Proceedable,Sale agreed or cash available,5
+chain_status,investor,Investor,No chain - investment purchase,6
+financial_status,verified,Verified,Funds and mortgage verified,1
+financial_status,aip_only,AIP Only,Mortgage in principle but not fully verified,2
+financial_status,pending_verification,Pending Verification,Awaiting proof of funds,3
+financial_status,self_employed_verified,Self Employed Verified,Self-employed with verified accounts,4
+financial_status,unverified,Unverified,No financial verification completed,5
+tenure,freehold,Freehold,Owns property and land outright,1
+tenure,leasehold,Leasehold,Owns property for lease term,2
+tenure,share_of_freehold,Share of Freehold,Part ownership of freehold,3
+tenure,commonhold,Commonhold,Alternative to leasehold for flats,4
+employee_role,branch_manager,Branch Manager,Manages a branch office,1
+employee_role,senior_negotiator,Senior Negotiator,Experienced sales negotiator,2
+employee_role,negotiator,Negotiator,Sales negotiator,3
+employee_role,trainee_negotiator,Trainee Negotiator,Entry level negotiator in training,4
+employee_role,senior_valuer,Senior Valuer,Experienced property valuer,5
+employee_role,valuer,Valuer,Property valuer,6
+employee_role,sales_progressor,Sales Progressor,Manages sales through to completion,7
+employee_role,lettings_manager,Lettings Manager,Manages lettings department,8
+employee_role,office_administrator,Office Administrator,Administrative support,9
+employee_role,marketing_coordinator,Marketing Coordinator,Handles property marketing,10
+employee_role,compliance_officer,Compliance Officer,AML and regulatory compliance,11
+aml_status,verified,Verified,Full AML checks completed and passed,1
+aml_status,pending,Pending,AML checks in progress,2
+aml_status,failed,Failed,AML checks failed - requires review,3
+aml_status,expired,Expired,AML verification has expired,4
+epc_rating,A,A Rating,Most efficient (92-100),1
+epc_rating,B,B Rating,Very efficient (81-91),2
+epc_rating,C,C Rating,Efficient (69-80),3
+epc_rating,D,D Rating,Average (55-68),4
+epc_rating,E,E Rating,Below average (39-54),5
+epc_rating,F,F Rating,Poor (21-38),6
+epc_rating,G,G Rating,Least efficient (1-20),7
+price_qualifier,guide_price,Guide Price,Indicative asking price,1
+price_qualifier,offers_over,Offers Over,Expecting offers above stated price,2
+price_qualifier,offers_invited,Offers Invited,Open to any reasonable offers,3
+price_qualifier,fixed_price,Fixed Price,Non-negotiable price,4
+price_qualifier,price_on_application,POA,Price available on request only,5
+selling_reason,upsizing,Upsizing,Moving to larger property,1
+selling_reason,downsizing,Downsizing,Moving to smaller property,2
+selling_reason,relocation,Relocation,Moving to different area,3
+selling_reason,retirement,Retirement,Retirement related move,4
+selling_reason,divorce,Divorce,Separation/divorce settlement,5
+selling_reason,probate,Probate,Deceased estate sale,6
+selling_reason,investment_sale,Investment Sale,Selling investment property,7
+selling_reason,first_time_seller,First Time Seller,First property being sold,8
+selling_reason,health_related,Health Related,Moving for health reasons,9
+selling_reason,estate_planning,Estate Planning,Asset reorganization,10
+portal,rightmove,Rightmove,UK's largest property portal,1
+portal,zoopla,Zoopla,Major property portal,2
+portal,onthemarket,OnTheMarket,Agent-owned property portal,3
+communication_preference,phone,Phone,Prefers phone calls,1
+communication_preference,email,Email,Prefers email communication,2
+communication_preference,whatsapp,WhatsApp,Prefers WhatsApp messaging,3
+communication_preference,text,Text/SMS,Prefers text messages,4
+priority_level,hot,Hot,High priority - ready to proceed,1
+priority_level,warm,Warm,Good prospect - actively searching,2
+priority_level,cool,Cool,Lower priority - casually looking,3
+priority_level,cold,Cold,Not active - needs nurturing,4
+branch,manchester_didsbury,Manchester Didsbury,Main Didsbury branch office,1
+branch,manchester_chorlton,Manchester Chorlton,Chorlton branch office,2
+branch,head_office,Head Office,Central administration,3
+department,sales,Sales,Property sales department,1
+department,lettings,Lettings,Rental lettings department,2
+department,valuations,Valuations,Property valuation team,3
+department,progression,Progression,Sales progression team,4
+department,marketing,Marketing,Marketing and media team,5
+department,administration,Administration,Admin support,6
+department,management,Management,Management team,7
+department,finance,Finance,Accounts and finance,8
+department,operations,Operations,IT and operations,9

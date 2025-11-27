@@ -1,0 +1,181 @@
+script_id,script_name,workflow_type,plan_id,total_messages,agents_involved,trigger_input,description
+AIS-001,Simple Enquiry Response,portal_enquiry_response,PLAN-002,8,"orchestrator,content,scout,compliance","Rightmove enquiry from buyer","Basic enquiry response flow with parallel content and scout"
+AIS-002,Full Property Onboarding,full_onboarding,PLAN-007,16,"orchestrator,scout,intelligence,content,compliance","Instruction signed","Complete new instruction with all agents"
+AIS-003,Buyer Matching,buyer_matching,PLAN-012,6,"orchestrator,scout,intelligence","New property launch","Find and score matching buyers"
+AIS-004,Weekly Vendor Report,vendor_report_generation,PLAN-018,10,"orchestrator,scout,intelligence,content","Weekly report trigger","Generate comprehensive vendor update"
+AIS-005,Offer Qualification,offer_qualification,PLAN-020,10,"orchestrator,scout,compliance,intelligence","Offer received","Verify buyer and score offer"
+AIS-006,Sale Agreed Processing,sale_agreed_workflow,PLAN-022,14,"orchestrator,scout,content,intelligence","Sale agreed","Complete sale agreed workflow"
+AIS-007,MoS Generation,mos_workflow,PLAN-023,12,"orchestrator,scout,content","Sale ready for MoS","Create and distribute memorandum"
+AIS-008,Completion Monitoring,completion_workflow,PLAN-025,12,"orchestrator,scout,content,compliance","Completion day","Track completion and release keys"
+AIS-009,Error Recovery - API Fail,error_recovery,PLAN-008,8,"orchestrator,scout","EPC API down","Handle API failure with retry and cache"
+AIS-010,Human Escalation,human_in_loop,PLAN-020,10,"orchestrator,compliance,human","AML flag detected","Escalate to human for approval"
+AIS-011,Chain Risk Detection,chain_analysis,PLAN-024,8,"orchestrator,scout,intelligence","Chain status check","Detect and flag chain problems"
+AIS-012,Price Reduction Flow,price_change_workflow,PLAN-019,10,"orchestrator,scout,content,intelligence","Vendor approves reduction","Update portals and notify buyers"
+AIS-013,Viewing Preparation,viewing_preparation,PLAN-015,8,"orchestrator,scout,content","Viewings scheduled tomorrow","Prepare vendor and buyers"
+AIS-014,Feedback Analysis,feedback_aggregation,PLAN-017,8,"orchestrator,scout,intelligence,content","End of day","Compile and analyze daily feedback"
+AIS-015,Urgent Buyer Match,urgent_matching,PLAN-012,8,"orchestrator,scout,intelligence,content","Hot buyer registered","Fast-track matching for urgent buyer"
+
+---
+script_id,message_seq,from_agent,to_agent,message_type,action,payload_summary,response_expected,time_ms,cost_usd
+AIS-001,1,system,orchestrator,trigger,receive_enquiry,"{buyer: Sophie Turner, property: PROP-2024-5680, source: rightmove}",true,0,0
+AIS-001,2,orchestrator,orchestrator,internal,analyze_priority,"Priority: HIGH - FTB with AIP",false,450,0.05
+AIS-001,3,orchestrator,content,request,generate_email,"{template: enquiry_response, buyer: Sophie, property: 22 Maple Avenue}",true,0,0
+AIS-001,4,orchestrator,scout,request,prepare_brief,"{property_id: PROP-2024-5680}",true,0,0
+AIS-001,5,content,orchestrator,response,email_draft,"{subject: Your enquiry about 22 Maple Avenue, body: 195 words, slots: 3}",false,3200,0.45
+AIS-001,6,scout,orchestrator,response,property_brief,"{highlights: [FTB ideal, £225k, 2-bed], talking_points: 5}",false,1500,0.20
+AIS-001,7,orchestrator,compliance,request,validate_email,"{email_draft: ...}",true,0,0
+AIS-001,8,compliance,orchestrator,response,validation_result,"{status: APPROVED, flags: none}",false,800,0.12
+
+AIS-002,1,system,orchestrator,trigger,instruction_signed,"{property: PROP-2024-5678, vendor: VEN-001, fee: 1.2%}",true,0,0
+AIS-002,2,orchestrator,orchestrator,internal,create_plan,"{plan: PLAN-007, groups: 4, steps: 8}",false,850,0.08
+AIS-002,3,orchestrator,scout,request,create_crm_record,"{property: 47 Oak Road, vendor: Sarah Anderson}",true,0,0
+AIS-002,4,orchestrator,scout,request,verify_epc,"{address: 47 Oak Road, M20 2QR}",true,0,0
+AIS-002,5,orchestrator,compliance,request,run_aml,"{vendor: VEN-001, documents: [passport, utility_bill]}",true,0,0
+AIS-002,6,scout,orchestrator,response,crm_created,"{property_id: PROP-2024-5678, record_complete: true}",false,4000,0.40
+AIS-002,7,scout,orchestrator,response,epc_verified,"{rating: C, expiry: 2033-05-15, valid: true}",false,2500,0.25
+AIS-002,8,compliance,orchestrator,response,aml_passed,"{certificate: AML-2024-9001, risk: low}",false,3000,0.35
+AIS-002,9,orchestrator,content,request,generate_description,"{property_id: PROP-2024-5678, features: [...]}",true,0,0
+AIS-002,10,orchestrator,intelligence,request,match_buyers,"{criteria: {beds: 3, price: 285000, postcode: M20}}",true,0,0
+AIS-002,11,content,orchestrator,response,description_draft,"{words: 178, highlights: 5, tone: family_friendly}",false,4500,0.65
+AIS-002,12,intelligence,orchestrator,response,buyer_matches,"{total: 23, hot: 8, top_match: BUY-2024-3001, score: 94}",false,5000,0.70
+AIS-002,13,orchestrator,compliance,request,validate_description,"{description: ...}",true,0,0
+AIS-002,14,compliance,orchestrator,response,description_approved,"{status: APPROVED, cpr_compliant: true}",false,1200,0.15
+AIS-002,15,orchestrator,orchestrator,internal,schedule_launch,"{date: 2024-11-28, portals: [rightmove, zoopla, otm]}",false,1000,0.08
+AIS-002,16,orchestrator,system,complete,onboarding_done,"{property_id: PROP-2024-5678, ready: true, buyers_matched: 23}",false,500,0.04
+
+AIS-003,1,system,orchestrator,trigger,match_request,"{property_id: PROP-2024-5700, criteria: {beds: 3, price: 365000}}",true,0,0
+AIS-003,2,orchestrator,scout,request,search_buyers,"{postcode: M20, min_budget: 340000, max_budget: 400000, beds: 3}",true,0,0
+AIS-003,3,scout,orchestrator,response,raw_matches,"{found: 18, buyers: [...]}",false,2500,0.35
+AIS-003,4,orchestrator,intelligence,request,score_matches,"{buyers: [...], property_features: [...]}",true,0,0
+AIS-003,5,intelligence,orchestrator,response,ranked_matches,"{top_5: [{id: BUY-3001, score: 94}, ...], hot_count: 6}",false,2000,0.30
+AIS-003,6,orchestrator,system,complete,matching_done,"{matches: 18, hot: 6, top: BUY-2024-3001}",false,500,0.05
+
+AIS-004,1,system,orchestrator,trigger,weekly_report_due,"{property_id: PROP-2024-5678, week: 2}",true,0,0
+AIS-004,2,orchestrator,scout,request,gather_weekly_data,"{property_id: PROP-2024-5678, date_range: 7_days}",true,0,0
+AIS-004,3,scout,orchestrator,response,weekly_stats,"{viewings: 12, enquiries: 28, offers: 2, portal_views: 1850}",false,3000,0.35
+AIS-004,4,orchestrator,scout,request,get_feedback,"{property_id: PROP-2024-5678}",true,0,0
+AIS-004,5,scout,orchestrator,response,feedback_data,"{total: 12, positive: 9, negative: 3, themes: [...]}",false,2000,0.25
+AIS-004,6,orchestrator,intelligence,request,analyze_performance,"{stats: ..., feedback: ..., comparables: ...}",true,0,0
+AIS-004,7,intelligence,orchestrator,response,analysis,"{vs_market: +40%, trend: positive, recommendation: maintain_price}",false,3500,0.40
+AIS-004,8,orchestrator,content,request,generate_report,"{stats: ..., analysis: ..., template: weekly_vendor}",true,0,0
+AIS-004,9,content,orchestrator,response,report_ready,"{format: PDF, pages: 3, sections: 5}",false,4800,0.45
+AIS-004,10,orchestrator,system,complete,report_generated,"{report_id: RPT-2024-5678-W2, ready: true}",false,500,0.10
+
+AIS-005,1,system,orchestrator,trigger,offer_received,"{property: PROP-2024-5678, buyer: BUY-2024-3001, amount: 275000}",true,0,0
+AIS-005,2,orchestrator,orchestrator,internal,parse_offer,"{amount: 275000, vs_asking: -3.5%, type: cash}",false,500,0.05
+AIS-005,3,orchestrator,compliance,request,verify_funds,"{buyer: BUY-2024-3001, claimed: cash, amount: 275000}",true,0,0
+AIS-005,4,orchestrator,scout,request,check_chain,"{buyer: BUY-2024-3001}",true,0,0
+AIS-005,5,compliance,orchestrator,response,funds_verified,"{status: VERIFIED, available: 320000, source: bank_statement}",false,2500,0.35
+AIS-005,6,scout,orchestrator,response,chain_status,"{status: chain_free, property_to_sell: none}",false,2000,0.30
+AIS-005,7,orchestrator,scout,request,verify_solicitor,"{solicitor: Clarke & Partners}",true,0,0
+AIS-005,8,scout,orchestrator,response,solicitor_confirmed,"{firm: Clarke & Partners, contact: David Clarke, ready: true}",false,1500,0.20
+AIS-005,9,orchestrator,intelligence,request,score_buyer,"{finances: verified, chain: free, solicitor: ready}",true,0,0
+AIS-005,10,intelligence,orchestrator,response,buyer_score,"{score: 95, rating: EXCELLENT, proceed: recommended}",false,2000,0.35
+
+AIS-006,1,system,orchestrator,trigger,sale_agreed,"{property: PROP-2024-5678, buyer: BUY-2024-3001, amount: 280000}",true,0,0
+AIS-006,2,orchestrator,orchestrator,internal,initiate_workflow,"{plan: PLAN-022, tasks: 7}",false,600,0.08
+AIS-006,3,orchestrator,content,request,generate_congrats_vendor,"{vendor: Sarah Anderson, amount: 280000}",true,0,0
+AIS-006,4,orchestrator,content,request,generate_congrats_buyer,"{buyer: Michael Brown, property: 47 Oak Road}",true,0,0
+AIS-006,5,content,orchestrator,response,vendor_email_ready,"{to: sarah.anderson@email.com, sent: true}",false,2000,0.30
+AIS-006,6,content,orchestrator,response,buyer_email_ready,"{to: brown.family@email.com, sent: true}",false,2000,0.30
+AIS-006,7,orchestrator,scout,request,collect_solicitors,"{buyer: BUY-2024-3001, vendor: VEN-001}",true,0,0
+AIS-006,8,scout,orchestrator,response,solicitors_collected,"{buyer_sol: Clarke & Partners, vendor_sol: Hughes Law}",false,3000,0.40
+AIS-006,9,orchestrator,intelligence,request,map_chain,"{buyer: BUY-2024-3001, vendor: VEN-001}",true,0,0
+AIS-006,10,intelligence,orchestrator,response,chain_map,"{length: 2, links: [VEN-001 → BUY-3001], risk: LOW}",false,2500,0.35
+AIS-006,11,orchestrator,content,request,create_handover,"{all_details: ..., chain: ...}",true,0,0
+AIS-006,12,content,orchestrator,response,handover_ready,"{brief: complete, pages: 2, assigned_to: EMP-005}",false,2400,0.40
+AIS-006,13,orchestrator,scout,request,update_crm,"{property: PROP-2024-5678, status: sold_stc}",true,0,0
+AIS-006,14,orchestrator,system,complete,sale_agreed_processed,"{handover: complete, progressor: EMP-005}",false,500,0.07
+
+AIS-007,1,system,orchestrator,trigger,mos_required,"{property: PROP-2024-5678, sale_agreed: true}",true,0,0
+AIS-007,2,orchestrator,scout,request,gather_party_details,"{property: PROP-2024-5678}",true,0,0
+AIS-007,3,scout,orchestrator,response,all_parties,"{vendor: VEN-001, buyer: BUY-3001, v_sol: Hughes Law, b_sol: Clarke}",false,2500,0.30
+AIS-007,4,orchestrator,content,request,generate_mos,"{parties: ..., sale_price: 280000, terms: ...}",true,0,0
+AIS-007,5,content,orchestrator,response,mos_document,"{format: PDF, ref: MOS-2024-5678, pages: 2}",false,3500,0.50
+AIS-007,6,orchestrator,content,request,email_to_buyer,"{mos: ..., email: brown.family@email.com}",true,0,0
+AIS-007,7,orchestrator,content,request,email_to_vendor,"{mos: ..., email: sarah.anderson@email.com}",true,0,0
+AIS-007,8,orchestrator,content,request,email_to_solicitors,"{mos: ..., emails: [b_sol, v_sol]}",true,0,0
+AIS-007,9,content,orchestrator,response,all_emails_sent,"{sent: 4, failed: 0}",false,2100,0.30
+AIS-007,10,orchestrator,scout,request,update_portals,"{property: PROP-2024-5678, status: sstc}",true,0,0
+AIS-007,11,scout,orchestrator,response,portals_updated,"{rightmove: done, zoopla: done, otm: done}",false,2100,0.30
+AIS-007,12,orchestrator,system,complete,mos_distributed,"{ref: MOS-2024-5678, parties_notified: 4}",false,500,0.05
+
+AIS-008,1,system,orchestrator,trigger,completion_day,"{property: PROP-2024-5694, expected: today}",true,0,0
+AIS-008,2,orchestrator,scout,request,check_funds_status,"{property: PROP-2024-5694}",true,0,0
+AIS-008,3,scout,orchestrator,response,funds_status,"{received: false, time: 09:30}",false,2000,0.25
+AIS-008,4,orchestrator,scout,request,check_funds_status,"{property: PROP-2024-5694}",true,0,0
+AIS-008,5,scout,orchestrator,response,funds_status,"{received: true, time: 10:30, confirmed: buyer_solicitor}",false,2000,0.25
+AIS-008,6,orchestrator,scout,request,confirm_legal_completion,"{property: PROP-2024-5694}",true,0,0
+AIS-008,7,scout,orchestrator,response,legal_complete,"{completed: true, time: 14:15, ref: COMP-2024-5694}",false,2000,0.25
+AIS-008,8,orchestrator,orchestrator,internal,authorize_keys,"{release: approved}",false,500,0.05
+AIS-008,9,orchestrator,content,request,send_completion_alerts,"{buyer: ..., vendor: ..., team: ...}",true,0,0
+AIS-008,10,content,orchestrator,response,alerts_sent,"{notifications: 5, channels: [email, sms]}",false,2000,0.30
+AIS-008,11,orchestrator,compliance,request,log_completion,"{property: PROP-2024-5694, audit: true}",true,0,0
+AIS-008,12,compliance,orchestrator,response,completion_logged,"{audit_id: AUD-2024-5694, compliant: true}",false,1000,0.15
+
+AIS-009,1,system,orchestrator,trigger,epc_check,"{property: PROP-2024-5678}",true,0,0
+AIS-009,2,orchestrator,scout,request,query_epc_api,"{address: 47 Oak Road, M20 2QR}",true,0,0
+AIS-009,3,scout,orchestrator,response,api_error,"{error: 503, message: Service Unavailable}",false,5000,0.10
+AIS-009,4,orchestrator,orchestrator,internal,retry_decision,"{attempt: 1, strategy: wait_and_retry}",false,100,0.01
+AIS-009,5,orchestrator,scout,request,query_epc_api,"{address: 47 Oak Road, M20 2QR, retry: true}",true,5000,0
+AIS-009,6,scout,orchestrator,response,api_error,"{error: 503, message: Service Unavailable}",false,5000,0.10
+AIS-009,7,orchestrator,scout,request,get_cached_epc,"{address: 47 Oak Road, M20 2QR}",true,0,0
+AIS-009,8,scout,orchestrator,response,cached_epc,"{rating: C, expiry: 2033-05-15, cache_age: 24hrs, flagged: revalidate}",false,1000,0.15
+
+AIS-010,1,system,orchestrator,trigger,aml_check,"{vendor: VEN-025, name: Lord Edward Blackwood}",true,0,0
+AIS-010,2,orchestrator,compliance,request,run_aml,"{vendor: VEN-025, documents: [...]}",true,0,0
+AIS-010,3,compliance,orchestrator,response,aml_flag,"{status: FLAGGED, reason: PEP_DETECTED, risk: MEDIUM}",false,3000,0.35
+AIS-010,4,orchestrator,orchestrator,internal,escalation_required,"{reason: PEP, human_approval: required}",false,200,0.02
+AIS-010,5,orchestrator,human,request,approval_needed,"{case: VEN-025, issue: PEP detected, action: enhanced_dd_required}",true,0,0
+AIS-010,6,human,orchestrator,response,human_decision,"{decision: APPROVED, notes: Proceed with EDD, reviewer: EMP-018}",false,0,0
+AIS-010,7,orchestrator,compliance,request,run_enhanced_dd,"{vendor: VEN-025, level: enhanced}",true,0,0
+AIS-010,8,compliance,orchestrator,response,edd_complete,"{status: PASSED, certificate: EDD-2024-9025, notes: legitimate_title}",false,5000,0.55
+AIS-010,9,orchestrator,scout,request,update_vendor_record,"{vendor: VEN-025, aml: passed_edd}",true,0,0
+AIS-010,10,orchestrator,system,complete,aml_resolved,"{vendor: VEN-025, status: cleared, method: human_approved_edd}",false,500,0.08
+
+AIS-011,1,system,orchestrator,trigger,chain_check,"{property: PROP-2024-5682}",true,0,0
+AIS-011,2,orchestrator,scout,request,get_chain_status,"{property: PROP-2024-5682}",true,0,0
+AIS-011,3,scout,orchestrator,response,chain_data,"{buyer: BUY-3023, buyer_selling: SK3_property, their_buyer: FTB}",false,2500,0.35
+AIS-011,4,orchestrator,intelligence,request,analyze_chain_risk,"{chain: [...], length: 3}",true,0,0
+AIS-011,5,intelligence,orchestrator,response,risk_assessment,"{risk: MEDIUM, weak_link: SK3_sale, reason: slow_solicitor}",false,2500,0.35
+AIS-011,6,orchestrator,orchestrator,internal,flag_risk,"{alert: progressor, priority: high}",false,300,0.03
+AIS-011,7,orchestrator,content,request,generate_alert,"{to: EMP-005, risk: chain_weak_link, action: chase_SK3_solicitor}",true,0,0
+AIS-011,8,orchestrator,system,complete,risk_flagged,"{chain: monitored, alert: sent, next_check: 48hrs}",false,500,0.05
+
+AIS-012,1,system,orchestrator,trigger,price_reduction,"{property: PROP-2024-5701, old: 268000, new: 250000}",true,0,0
+AIS-012,2,orchestrator,scout,request,update_crm_price,"{property: PROP-2024-5701, price: 250000}",true,0,0
+AIS-012,3,scout,orchestrator,response,crm_updated,"{property: PROP-2024-5701, price: 250000, history: logged}",false,1500,0.20
+AIS-012,4,orchestrator,scout,request,update_all_portals,"{property: PROP-2024-5701, price: 250000}",true,0,0
+AIS-012,5,scout,orchestrator,response,portals_updated,"{rightmove: done, zoopla: done, otm: done}",false,2500,0.35
+AIS-012,6,orchestrator,intelligence,request,rematch_buyers,"{property: PROP-2024-5701, new_price: 250000}",true,0,0
+AIS-012,7,intelligence,orchestrator,response,new_matches,"{previous: 8, new: 15, added: 7}",false,2500,0.40
+AIS-012,8,orchestrator,content,request,notify_buyers,"{buyers: [...], message: price_reduced}",true,0,0
+AIS-012,9,content,orchestrator,response,notifications_sent,"{emails: 15, sms: 5}",false,2000,0.30
+AIS-012,10,orchestrator,system,complete,reduction_processed,"{new_price: 250000, buyers_notified: 15}",false,500,0.05
+
+AIS-013,1,system,orchestrator,trigger,viewing_prep,"{property: PROP-2024-5683, date: tomorrow, count: 4}",true,0,0
+AIS-013,2,orchestrator,scout,request,get_viewing_schedule,"{property: PROP-2024-5683, date: tomorrow}",true,0,0
+AIS-013,3,scout,orchestrator,response,schedule,"{viewings: [{time: 10am, buyer: BUY-3011}, {time: 11am, buyer: BUY-3019}...]}",false,1200,0.15
+AIS-013,4,orchestrator,content,request,vendor_prep_email,"{vendor: VEN-006, times: [10am, 11am, 2pm, 4pm]}",true,0,0
+AIS-013,5,content,orchestrator,response,vendor_notified,"{email: sent, checklist: included}",false,1800,0.25
+AIS-013,6,orchestrator,content,request,buyer_reminders,"{buyers: [BUY-3011, BUY-3019, ...], property: 9 Mill Road}",true,0,0
+AIS-013,7,content,orchestrator,response,reminders_sent,"{emails: 4, confirmations_requested: true}",false,2000,0.30
+AIS-013,8,orchestrator,system,complete,prep_done,"{vendor: notified, buyers: 4 reminded, brief: ready}",false,500,0.05
+
+AIS-014,1,system,orchestrator,trigger,end_of_day,"{date: 2024-11-27}",true,0,0
+AIS-014,2,orchestrator,scout,request,gather_all_feedback,"{date: today}",true,0,0
+AIS-014,3,scout,orchestrator,response,feedback_collected,"{total: 18, properties: 8, positive: 12, negative: 6}",false,2000,0.25
+AIS-014,4,orchestrator,intelligence,request,analyze_patterns,"{feedback: [...]}",true,0,0
+AIS-014,5,intelligence,orchestrator,response,patterns_found,"{concerns: [{prop: PROP-5680, issue: price, count: 3}], opportunities: 2}",false,2500,0.40
+AIS-014,6,orchestrator,content,request,generate_summary,"{analysis: ..., for: manager}",true,0,0
+AIS-014,7,content,orchestrator,response,summary_ready,"{report: daily_insights, highlights: 3, actions: 2}",false,1500,0.20
+AIS-014,8,orchestrator,system,complete,daily_feedback_done,"{processed: 18, alerts: 1, report: sent}",false,500,0.05
+
+AIS-015,1,system,orchestrator,trigger,hot_buyer,"{buyer: BUY-2024-3021, type: relocation, budget: 400000, urgency: high}",true,0,0
+AIS-015,2,orchestrator,orchestrator,internal,flag_urgent,"{priority: URGENT, reason: cash_relocator}",false,300,0.03
+AIS-015,3,orchestrator,scout,request,search_all_properties,"{budget: 400000, beds: 3-4, postcode: M20|M21}",true,0,0
+AIS-015,4,scout,orchestrator,response,properties_found,"{matches: 12, available_now: 8}",false,2000,0.30
+AIS-015,5,orchestrator,intelligence,request,fast_rank,"{buyer: BUY-3021, properties: [...], priority: speed}",true,0,0
+AIS-015,6,intelligence,orchestrator,response,ranked_list,"{top_5: [PROP-5683, PROP-5700, ...], best_match: 91%}",false,1500,0.25
+AIS-015,7,orchestrator,content,request,urgent_outreach,"{buyer: BUY-3021, properties: top_5, tone: responsive}",true,0,0
+AIS-015,8,content,orchestrator,response,outreach_sent,"{email: sent, call_task: created_for_EMP-001}",false,1500,0.22

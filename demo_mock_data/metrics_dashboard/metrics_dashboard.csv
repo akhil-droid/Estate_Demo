@@ -1,0 +1,73 @@
+metric_id,category,metric_name,description,manual_baseline,ai_performance,improvement_pct,unit,time_period,data_source,demo_highlight
+KPI-001,speed,Enquiry Response Time,Time to respond to portal enquiry,240,4,98.3,minutes,per_enquiry,system_logs,4 mins vs 4 hours industry avg
+KPI-002,speed,Lead to Launch,Time from website lead to property live on portals,10080,1440,85.7,minutes,per_property,workflow_tracker,24 hours vs 7 days
+KPI-003,speed,Valuation Prep Time,Time to prepare CMA before appointment,45,1.5,96.7,minutes,per_valuation,task_tracker,Overnight auto-prep
+KPI-004,speed,Description Writing,Time to create compliant property description,35,0.1,99.7,minutes,per_property,content_agent,6 seconds vs 35 mins
+KPI-005,speed,Buyer Matching,Time to find and score matching buyers,25,0.08,99.7,minutes,per_property,intelligence_agent,5 seconds vs 25 mins
+KPI-006,speed,MoS Generation,Time to create and distribute memorandum,60,0.16,99.7,minutes,per_sale,workflow_tracker,10 seconds vs 1 hour
+KPI-007,speed,Weekly Report,Time to generate vendor report,90,0.25,99.7,minutes,per_report,content_agent,15 seconds vs 90 mins
+KPI-008,speed,Offer Qualification,Time to verify buyer and score offer,120,0.14,99.9,minutes,per_offer,compliance_agent,8 seconds vs 2 hours
+KPI-009,cost,Cost Per Enquiry Response,Total cost to respond to one enquiry,5.35,0.83,84.5,GBP,per_enquiry,cost_tracker,88% cost reduction
+KPI-010,cost,Cost Per Property Onboarding,Full setup cost for new instruction,38.87,2.70,93.1,GBP,per_property,cost_tracker,94% cost reduction
+KPI-011,cost,Cost Per Weekly Report,Cost to generate vendor report,12.50,1.55,87.6,GBP,per_report,cost_tracker,Save £11 per report
+KPI-012,cost,Cost Per Offer Processing,Qualification and presentation cost,18.75,2.20,88.3,GBP,per_offer,cost_tracker,Save £16 per offer
+KPI-013,cost,Monthly AI Spend,Total AI costs per month,0,850,0,GBP,monthly,billing,Predictable fixed cost
+KPI-014,cost,Cost Per Sale,AI cost from instruction to completion,0,45,0,GBP,per_sale,cost_tracker,£45 AI vs £380 manual labor
+KPI-015,quality,Description Acceptance Rate,First draft accepted without edits,62,97,56.5,percent,per_description,content_tracker,97% first-draft acceptance
+KPI-016,quality,Data Extraction Accuracy,Correct data from documents,78,94,20.5,percent,per_document,compliance_agent,94% accuracy
+KPI-017,quality,Buyer Match Relevance,Buyers who view after being matched,35,68,94.3,percent,per_match,crm_data,2x more relevant matches
+KPI-018,quality,Compliance Pass Rate,Content passing compliance first time,71,99,39.4,percent,per_content,compliance_agent,Near-perfect compliance
+KPI-019,quality,CRM Data Completeness,Required fields populated correctly,76,98,28.9,percent,per_record,crm_audit,98% complete records
+KPI-020,quality,EPC Verification Accuracy,Correct EPC data retrieved,85,99,16.5,percent,per_check,scout_agent,99% accurate
+KPI-021,conversion,Enquiry to Viewing,Enquiries converting to viewings,35,58,65.7,percent,per_enquiry,crm_data,Speed drives conversions
+KPI-022,conversion,Viewing to Offer,Viewings resulting in offers,12,19,58.3,percent,per_viewing,crm_data,Better matched buyers
+KPI-023,conversion,Instruction Rate,Valuations converting to instructions,38,52,36.8,percent,per_valuation,crm_data,Better prepared valuers
+KPI-024,conversion,Sale Success Rate,Sales completing without falling through,72,89,23.6,percent,per_sale,crm_data,Proactive risk management
+KPI-025,conversion,Fall-Through Prevention,At-risk sales saved by intervention,0,73,100,percent,per_alert,progression_tracker,AI catches problems early
+KPI-026,capacity,Properties Per Negotiator,Active listings per person,15,45,200,count,per_person,crm_data,3x capacity increase
+KPI-027,capacity,Enquiries Handled Daily,Enquiries processed per day,25,250,900,count,per_day,system_logs,10x throughput
+KPI-028,capacity,Viewings Coordinated,Viewings managed per week,40,180,350,count,per_week,crm_data,4.5x more viewings
+KPI-029,capacity,Reports Generated,Weekly reports produced,8,50,525,count,per_week,content_agent,6x reporting capacity
+KPI-030,capacity,Concurrent Workflows,Simultaneous processes running,1,100,9900,count,instant,system_monitor,Unlimited parallelization
+KPI-031,time_saved,Daily Time Saved Per Agent,Hours freed up per person per day,0,4.5,100,hours,per_day,task_tracker,Half day freed for client work
+KPI-032,time_saved,Weekly Admin Reduction,Admin hours eliminated per week,0,22,100,hours,per_week,task_tracker,22 hours back to selling
+KPI-033,time_saved,Monthly Team Capacity,Extra productive hours per month,0,180,100,hours,per_month,task_tracker,Equivalent to 1 FTE
+KPI-034,time_saved,Annual Efficiency Gain,Total hours saved annually,0,2160,100,hours,per_year,task_tracker,2160 hours = £32k value
+KPI-035,compliance,AML Check Completion,AML checks completed same day,45,100,122.2,percent,per_check,compliance_agent,100% same-day AML
+KPI-036,compliance,Regulatory Flags Caught,Compliance issues detected pre-publish,65,99,52.3,percent,per_listing,compliance_agent,Near-zero compliance risk
+KPI-037,compliance,Audit Trail Coverage,Transactions with full audit trail,70,100,42.9,percent,per_sale,system_logs,Complete audit coverage
+KPI-038,compliance,GDPR Compliance,Data handling compliance score,82,100,22,percent,overall,compliance_audit,Full GDPR compliance
+KPI-039,experience,Vendor Satisfaction,Vendor NPS score,42,71,69,nps,quarterly,survey,+29 NPS improvement
+KPI-040,experience,Buyer Satisfaction,Buyer NPS score,38,65,71.1,nps,quarterly,survey,+27 NPS improvement
+KPI-041,experience,Response Consistency,Same quality regardless of time/day,60,99,65,percent,overall,quality_audit,24/7 consistent service
+KPI-042,experience,After Hours Coverage,Enquiries handled outside 9-5,0,100,100,percent,per_enquiry,system_logs,Never miss an enquiry
+KPI-043,revenue,Additional Sales Per Month,Extra sales from faster response,0,3,100,count,per_month,crm_data,3 extra sales/month
+KPI-044,revenue,Revenue Impact Monthly,Additional revenue from AI speed,0,4500,100,GBP,per_month,finance,£4500 extra commission
+KPI-045,revenue,Annual Revenue Uplift,Yearly additional revenue,0,54000,100,GBP,per_year,finance,£54k annual uplift
+KPI-046,revenue,ROI on AI Investment,Return on AI platform cost,0,530,100,percent,per_year,finance,5.3x ROI
+
+---
+dashboard_id,dashboard_name,metrics_included,refresh_rate,audience,description
+DASH-001,Executive Summary,"KPI-001,KPI-009,KPI-021,KPI-026,KPI-045",daily,leadership,High-level KPIs for management review
+DASH-002,Operations Monitor,"KPI-001,KPI-002,KPI-027,KPI-028,KPI-030",real_time,operations,Live operational performance
+DASH-003,Quality Scorecard,"KPI-015,KPI-016,KPI-017,KPI-018,KPI-019",daily,quality_team,Content and data quality metrics
+DASH-004,Compliance Dashboard,"KPI-035,KPI-036,KPI-037,KPI-038",daily,compliance,Regulatory compliance tracking
+DASH-005,Cost Analysis,"KPI-009,KPI-010,KPI-011,KPI-012,KPI-013,KPI-014",weekly,finance,Cost tracking and savings
+DASH-006,Conversion Funnel,"KPI-021,KPI-022,KPI-023,KPI-024,KPI-025",daily,sales_manager,Pipeline conversion rates
+DASH-007,Agent Performance,"KPI-003,KPI-004,KPI-005,KPI-006,KPI-007,KPI-008",real_time,tech_team,AI agent performance metrics
+DASH-008,Customer Experience,"KPI-039,KPI-040,KPI-041,KPI-042",monthly,customer_success,Client satisfaction tracking
+DASH-009,Revenue Impact,"KPI-043,KPI-044,KPI-045,KPI-046",monthly,leadership,Financial impact of AI
+DASH-010,Investor Demo,"KPI-001,KPI-009,KPI-015,KPI-026,KPI-024,KPI-046",on_demand,investors,Key metrics for investor presentations
+
+---
+benchmark_id,metric_id,benchmark_source,industry_avg,top_quartile,our_performance,percentile_rank
+BM-001,KPI-001,property_academy_2024,240,60,4,99
+BM-002,KPI-002,rightmove_insights,10080,4320,1440,95
+BM-003,KPI-015,content_marketing_institute,62,78,97,99
+BM-004,KPI-021,zoopla_market_report,35,48,58,92
+BM-005,KPI-022,propertymark_stats,12,16,19,94
+BM-006,KPI-024,hmrc_transaction_data,72,82,89,96
+BM-007,KPI-026,estate_agent_today,15,22,45,99
+BM-008,KPI-039,trustpilot_industry,42,55,71,97
+BM-009,KPI-035,fca_compliance_report,45,75,100,99
+BM-010,KPI-046,proptech_roi_study,180,320,530,98

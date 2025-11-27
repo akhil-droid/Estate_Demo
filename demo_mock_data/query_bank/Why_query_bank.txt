@@ -1,0 +1,13 @@
+For Demo:
+
+Pick any query → Feed to your Orchestrator → Show it creating execution plan → Agents execute → Result
+75 realistic scenarios = never run out of demo material
+
+For Agents:
+
+Orchestrator reads query_type + expected_workflow → knows which agents to call
+Scout/Intelligence use sample_property_id, sample_buyer_id → fetch real entity data
+Content uses context_required → knows what info to include in outputs
+expected_agents + expected_subtasks → validates your agent is making correct decisions
+
+Simply: Queries are the INPUT your agents receive. They trigger everything.

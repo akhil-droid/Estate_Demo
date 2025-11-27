@@ -1,0 +1,23 @@
+Execution Plans Summary → For Orchestrator's brain
+
+Query arrives → Orchestrator looks up which plan_id matches
+Knows instantly: which agents, how many steps, expected time/cost
+
+Execution Steps Detailed → For Orchestrator's execution
+
+Tells exact sequence: Step 1 → Step 2 → Step 3
+parallel_group: A, A, B means first two run together, B waits
+dependencies: Step 5 needs Step 2 done first
+assigned_agent: Who does what
+
+Example:
+Query: "New instruction signed for 47 Oak Road"
+         ↓
+Orchestrator matches → PLAN-007 (Full Onboarding)
+         ↓
+Reads steps → Dispatches Scout + Compliance in parallel (Group A)
+         ↓
+Waits → Then dispatches Content + Intelligence (Group B)
+         ↓
+Done in 45 seconds instead of 2 hours
+Simply: Summary = what to do. Steps = how to do it.
